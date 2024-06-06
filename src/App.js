@@ -1,22 +1,20 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+import UserProfile from "./UserProfile";
 import './App.css';
 
 function App() {
+  const [name, setName] = useState("John Doe");
+
+  const handleChange = (event) => {
+    setName(event.target.value);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>User Profile Management</h1>
+        <UserProfile name = {name} />
+        <input type="text" value={name} onChange={handleChange} />
       </header>
     </div>
   );
